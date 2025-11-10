@@ -34,7 +34,7 @@ func NewServer(cfg *config.ServerConfig, log *logger.Logger) *Server {
 	router.Use(gin.Recovery())
 
 	// 创建HTTP服务器
-	readTimeout, err := time.ParseDuration(fmt.Sprintf("%vs", cfg.ReadTimeout))
+	readTimeout, err := time.ParseDuration(cfg.ReadTimeout)
 	if err != nil {
 		log.Error("解析读取超时时间失败", map[string]interface{}{
 			"error": err.Error(),
@@ -43,7 +43,7 @@ func NewServer(cfg *config.ServerConfig, log *logger.Logger) *Server {
 		readTimeout = 30 * time.Second // 默认30秒
 	}
 	
-	writeTimeout, err := time.ParseDuration(fmt.Sprintf("%vs", cfg.WriteTimeout))
+	writeTimeout, err := time.ParseDuration(cfg.WriteTimeout)
 	if err != nil {
 		log.Error("解析写入超时时间失败", map[string]interface{}{
 			"error": err.Error(),

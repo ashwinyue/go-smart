@@ -206,24 +206,104 @@ func (r *RefundTool) FormatRefundInfo(refund *RefundRequest) string {
 	return result
 }
 
-// GetToolInfo 获取工具信息
-func (r *RefundTool) GetToolInfo() map[string]interface{} {
+// GetName 获取工具名称
+func (r *RefundTool) GetName() string {
+	return "refund_request"
+}
+
+// GetDescription 获取工具描述
+func (r *RefundTool) GetDescription() string {
+	return "处理退款申请，包括提交退款申请、查询退款状态等"
+}
+
+// GetParameters 获取工具参数
+func (r *RefundTool) GetParameters() map[string]interface{} {
 	return map[string]interface{}{
-		"name":        "refund_request",
-		"description": "申请订单退款，包括检查退款资格和提交退款申请",
-		"parameters": map[string]interface{}{
-			"type": "object",
-			"properties": map[string]interface{}{
-				"order_id": map[string]interface{}{
-					"type":        "string",
-					"description": "订单号，通常以'ORD'开头",
-				},
-				"reason": map[string]interface{}{
-					"type":        "string",
-					"description": "退款原因，如商品质量问题、不想要了等",
-				},
+		"type": "object",
+		"properties": map[string]interface{}{
+			"action": map[string]interface{}{
+				"type":        "string",
+				"description": "操作类型：submit（提交退款申请）或 query（查询退款状态）",
+				"enum":        []string{"submit", "query"},
 			},
-			"required": []string{"order_id", "reason"},
+			"order_id": map[string]interface{}{
+				"type":        "string",
+				"description": "订单号，提交退款申请时必需",
+			},
+			"reason": map[string]interface{}{
+				"type":        "string",
+				"description": "退款原因，提交退款申请时必需",
+			},
+			"refund_id": map[string]interface{}{
+				"type":        "string",
+				"description": "退款申请号，查询退款状态时必需",
+			},
 		},
+		"required": []string{"action"},
+	}
+}
+
+// Call 实现工具调用接口
+func (r *RefundTool) Call(args map[string]interface{}) (map[string]interface{}, error) {
+	// 获取action参数
+	action, ok := args["action"].(string)
+	if !ok {
+		return map[string]interface{}{
+			"success": false,
+			"error":   "缺少action参数",
+		}, fmt.Errorf("缺少action参数")
+	}
+	
+	ctx := context.Background()
+	
+	switch action {
+	case "submit":
+		// 获取提交退款申请所需参数
+		orderID, _ := args["order_id"].(string)
+		reason, _ := args["reason"].(string)
+		
+		// 提交退款申请
+		refund, err := r.SubmitRefund(ctx, orderID, reason)
+		if err != nil {
+			return map[string]interface{}{
+				"success": false,
+				"error":   err.Error(),
+			}, err
+		}
+		
+		formattedInfo := r.FormatRefundInfo(refund)
+		
+		return map[string]interface{}{
+			"success":        true,
+			"refund":         refund,
+			"formatted_info": formattedInfo,
+		}, nil
+		
+	case "query":
+		// 获取查询退款状态所需参数
+		refundID, _ := args["refund_id"].(string)
+		
+		// 查询退款状态
+		refund, err := r.QueryRefund(ctx, refundID)
+		if err != nil {
+			return map[string]interface{}{
+				"success": false,
+				"error":   err.Error(),
+			}, err
+		}
+		
+		formattedInfo := r.FormatRefundInfo(refund)
+		
+		return map[string]interface{}{
+			"success":        true,
+			"refund":         refund,
+			"formatted_info": formattedInfo,
+		}, nil
+		
+	default:
+		return map[string]interface{}{
+			"success": false,
+			"error":   fmt.Sprintf("不支持的操作: %s", action),
+		}, fmt.Errorf("不支持的操作: %s", action)
 	}
 }

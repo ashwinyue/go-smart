@@ -12,14 +12,16 @@ import (
 // ChatHandler 聊天处理器
 type ChatHandler struct {
 	conversationService *service.ConversationService
-	logger              *logger.Logger
+	workflowService    *service.WorkflowService
+	logger             *logger.Logger
 }
 
 // NewChatHandler 创建聊天处理器
-func NewChatHandler(conversationService *service.ConversationService, log *logger.Logger) *ChatHandler {
+func NewChatHandler(conversationService *service.ConversationService, workflowService *service.WorkflowService, log *logger.Logger) *ChatHandler {
 	return &ChatHandler{
 		conversationService: conversationService,
-		logger:              log,
+		workflowService:    workflowService,
+		logger:             log,
 	}
 }
 
@@ -27,6 +29,7 @@ func NewChatHandler(conversationService *service.ConversationService, log *logge
 type ChatRequest struct {
 	Message   string `json:"message" binding:"required"`
 	SessionID string `json:"session_id,omitempty"`
+	UseWorkflow bool `json:"use_workflow,omitempty"`
 }
 
 // ChatResponse 聊天响应
@@ -49,24 +52,40 @@ func (h *ChatHandler) Chat(c *gin.Context) {
 	}
 
 	h.logger.Info("收到聊天请求", map[string]interface{}{
-		"message":    req.Message,
-		"session_id": req.SessionID,
+		"message":     req.Message,
+		"session_id":  req.SessionID,
+		"use_workflow": req.UseWorkflow,
 	})
 
 	var response string
 	var err error
 
-	// 如果提供了session_id，使用多轮对话处理
-	if req.SessionID != "" {
-		response, err = h.conversationService.ProcessMultiTurnMessage(c.Request.Context(), req.SessionID, req.Message)
-	} else {
-		// 否则使用单轮对话处理
-		result, procErr := h.conversationService.ProcessMessage(c.Request.Context(), req.Message)
-		if procErr == nil {
-			response = result["response"].(string)
+	// 根据请求决定使用哪种处理方式
+	if req.UseWorkflow {
+		// 使用新的工作流处理
+		if req.SessionID != "" {
+			response, err = h.workflowService.ProcessMultiTurnMessage(c.Request.Context(), req.SessionID, req.Message)
+		} else {
+			result, procErr := h.workflowService.ProcessMessage(c.Request.Context(), req.Message)
+			if procErr == nil {
+				response = result["response"].(string)
+			}
+			if procErr != nil {
+				err = procErr
+			}
 		}
-		if procErr != nil {
-			err = procErr
+	} else {
+		// 使用原有的对话服务处理
+		if req.SessionID != "" {
+			response, err = h.conversationService.ProcessMultiTurnMessage(c.Request.Context(), req.SessionID, req.Message)
+		} else {
+			result, procErr := h.conversationService.ProcessMessage(c.Request.Context(), req.Message)
+			if procErr == nil {
+				response = result["response"].(string)
+			}
+			if procErr != nil {
+				err = procErr
+			}
 		}
 	}
 

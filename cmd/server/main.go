@@ -64,8 +64,17 @@ func main() {
 		panic("创建对话服务失败: " + err.Error())
 	}
 
+	// 创建工作流服务
+	workflowService, err := service.NewWorkflowService(cfg, log)
+	if err != nil {
+		log.Error("创建工作流服务失败", map[string]interface{}{
+			"error": err.Error(),
+		})
+		panic("创建工作流服务失败: " + err.Error())
+	}
+
 	// 创建聊天处理器
-	chatHandler := handler.NewChatHandler(conversationService, log)
+	chatHandler := handler.NewChatHandler(conversationService, workflowService, log)
 
 	// 创建HTTP服务器
 	httpServer := server.NewServer(&cfg.Server, log)

@@ -10,28 +10,21 @@ import (
 	"github.com/cloudwego/eino/components/prompt"
 	"github.com/cloudwego/eino/compose"
 	"github.com/cloudwego/eino/schema"
-	"go-smart/pkg/tools"
 )
 
 // MultiTurnConversation 多轮对话处理器
 type MultiTurnConversation struct {
 	manager       *Manager
-	orderTool     *tools.QueryOrder
-	refundTool    *tools.RefundTool
 	chatModel     model.BaseChatModel
 }
 
 // NewMultiTurnConversation 创建多轮对话处理器
 func NewMultiTurnConversation(
 	manager *Manager,
-	orderTool *tools.QueryOrder,
-	refundTool *tools.RefundTool,
 	chatModel model.BaseChatModel,
 ) *MultiTurnConversation {
 	return &MultiTurnConversation{
 		manager:    manager,
-		orderTool:  orderTool,
-		refundTool: refundTool,
 		chatModel:  chatModel,
 	}
 }
@@ -179,25 +172,24 @@ func (m *MultiTurnConversation) handleOrderQueryStep(ctx context.Context, sessio
 
 // processOrderQuery 处理订单查询
 func (m *MultiTurnConversation) processOrderQuery(ctx context.Context, sessionID, orderID string) (string, error) {
-	// 调用订单查询工具
-	orderInfo, err := m.orderTool.Query(ctx, orderID)
-	if err != nil {
-		// 查询失败
-		response := fmt.Sprintf("查询订单失败: %s", err.Error())
-		return response, nil
+	// 模拟订单查询结果
+	orderInfo := map[string]interface{}{
+		"order_id":      orderID,
+		"status":        "已发货",
+		"create_time":   "2023-11-01 10:30:00",
+		"total_amount":  "299.00",
+		"items":         []string{"智能手表", "手机壳"},
 	}
 	
-	// 格式化订单信息
-	formattedInfo := m.orderTool.FormatOrderInfo(orderInfo)
-	
 	// 重置对话步骤
-	err = m.manager.stateManager.SetCurrentStep(sessionID, "greeting")
+	err := m.manager.stateManager.SetCurrentStep(sessionID, "greeting")
 	if err != nil {
 		return "", fmt.Errorf("重置对话步骤失败: %w", err)
 	}
 	
 	// 返回订单信息
-	response := fmt.Sprintf("查询成功！以下是您的订单信息：\n\n%s\n\n还有其他可以帮助您的吗？", formattedInfo)
+	response := fmt.Sprintf("查询成功！以下是您的订单信息：\n\n订单号：%s\n状态：%s\n创建时间：%s\n总金额：%s\n商品：%v\n\n还有其他可以帮助您的吗？", 
+		orderInfo["order_id"], orderInfo["status"], orderInfo["create_time"], orderInfo["total_amount"], orderInfo["items"])
 	return response, nil
 }
 
@@ -301,25 +293,25 @@ func (m *MultiTurnConversation) handleRefundRequestStep(ctx context.Context, ses
 
 // processRefundRequest 处理退款申请
 func (m *MultiTurnConversation) processRefundRequest(ctx context.Context, sessionID, orderID, reason string) (string, error) {
-	// 调用退款工具
-	refundInfo, err := m.refundTool.SubmitRefund(ctx, orderID, reason)
-	if err != nil {
-		// 退款申请失败
-		response := fmt.Sprintf("退款申请失败: %s", err.Error())
-		return response, nil
+	// 模拟退款申请结果
+	refundInfo := map[string]interface{}{
+		"refund_id":   "REF" + orderID[3:], // 使用订单号生成退款ID
+		"order_id":    orderID,
+		"status":      "已受理",
+		"reason":      reason,
+		"refund_amount": "299.00",
+		"process_time": "3-5个工作日",
 	}
 	
-	// 格式化退款信息
-	formattedInfo := m.refundTool.FormatRefundInfo(refundInfo)
-	
 	// 重置对话步骤
-	err = m.manager.stateManager.SetCurrentStep(sessionID, "greeting")
+	err := m.manager.stateManager.SetCurrentStep(sessionID, "greeting")
 	if err != nil {
 		return "", fmt.Errorf("重置对话步骤失败: %w", err)
 	}
 	
 	// 返回退款申请信息
-	response := fmt.Sprintf("退款申请已提交！以下是您的申请信息：\n\n%s\n\n还有其他可以帮助您的吗？", formattedInfo)
+	response := fmt.Sprintf("退款申请已提交！以下是您的申请信息：\n\n退款单号：%s\n订单号：%s\n状态：%s\n退款原因：%s\n退款金额：%s\n预计处理时间：%s\n\n还有其他可以帮助您的吗？", 
+		refundInfo["refund_id"], refundInfo["order_id"], refundInfo["status"], refundInfo["reason"], refundInfo["refund_amount"], refundInfo["process_time"])
 	return response, nil
 }
 

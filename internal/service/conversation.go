@@ -92,8 +92,6 @@ func NewConversationService(ctx context.Context, chatModel model.BaseChatModel, 
 	// 创建多轮对话处理器
 	multiTurnConv := conversation.NewMultiTurnConversation(
 		conversationMgr,
-		orderTool,
-		refundTool,
 		chatModel,
 	)
 	

@@ -155,20 +155,58 @@ func (q *QueryOrder) FormatOrderInfo(order *OrderInfo) string {
 	return result
 }
 
-// GetToolInfo 获取工具信息
-func (q *QueryOrder) GetToolInfo() map[string]interface{} {
+// GetName 获取工具名称
+func (q *QueryOrder) GetName() string {
+	return "query_order"
+}
+
+// GetDescription 获取工具描述
+func (q *QueryOrder) GetDescription() string {
+	return "查询订单信息，包括订单状态、物流信息等"
+}
+
+// GetParameters 获取工具参数
+func (q *QueryOrder) GetParameters() map[string]interface{} {
 	return map[string]interface{}{
-		"name":        "query_order",
-		"description": "查询订单信息，包括订单状态、物流信息等",
-		"parameters": map[string]interface{}{
-			"type": "object",
-			"properties": map[string]interface{}{
-				"order_id": map[string]interface{}{
-					"type":        "string",
-					"description": "订单号，通常以'ORD'开头",
-				},
+		"type": "object",
+		"properties": map[string]interface{}{
+			"order_id": map[string]interface{}{
+				"type":        "string",
+				"description": "订单号，通常以'ORD'开头",
 			},
-			"required": []string{"order_id"},
 		},
+		"required": []string{"order_id"},
 	}
+}
+
+// Call 实现工具调用接口
+func (q *QueryOrder) Call(args map[string]interface{}) (map[string]interface{}, error) {
+	// 获取order_id参数
+	orderID, ok := args["order_id"].(string)
+	if !ok {
+		return map[string]interface{}{
+			"success": false,
+			"error":   "缺少order_id参数",
+		}, fmt.Errorf("缺少order_id参数")
+	}
+	
+	ctx := context.Background()
+	
+	// 查询订单
+	order, err := q.Query(ctx, orderID)
+	if err != nil {
+		return map[string]interface{}{
+			"success": false,
+			"error":   err.Error(),
+		}, err
+	}
+	
+	// 格式化订单信息
+	formattedInfo := q.FormatOrderInfo(order)
+	
+	return map[string]interface{}{
+		"success":        true,
+		"order":          order,
+		"formatted_info": formattedInfo,
+	}, nil
 }
