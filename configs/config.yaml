@@ -1,0 +1,45 @@
+# 服务器配置
+server:
+  port: 8080
+  mode: "debug"  # debug, release, test
+  read_timeout: 30s
+  write_timeout: 30s
+  max_header_bytes: 1 << 20  # 1MB
+
+# 日志配置
+logger:
+  level: "info"  # debug, info, warn, error
+  format: "json"  # json, text
+  output: "stdout"  # stdout, stderr, file
+  file_path: "logs/app.log"  # 当output为file时使用
+  max_size: 100  # MB
+  max_age: 30  # days
+  max_backups: 10
+  compress: true
+
+# AI模型配置
+ai:
+  provider: "openai"  # openai, mock
+  openai:
+    api_key: "sk-KfQcfRMdbDHSUhkX6115Ef8f4eE14eD48014827500B4E70d"
+    base_url: "https://api.vveai.com/v1"
+    model: "gpt-3.5-turbo"
+    max_tokens: 1000
+    temperature: 0.7
+  mock:
+    response_delay: 1s
+    default_response: "这是一个模拟回复"
+
+# 数据库配置（如果需要）
+database:
+  type: "sqlite"  # mysql, postgres, sqlite
+  connection: "data/app.db"
+  max_open_conns: 10
+  max_idle_conns: 5
+  conn_max_lifetime: 5m
+
+# 其他配置
+app:
+  name: "Go Smart"
+  version: "1.0.0"
+  debug: true

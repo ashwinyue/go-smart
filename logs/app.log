@@ -1,0 +1,150 @@
+{"time":"2025-11-11T01:51:15.513268+08:00","level":"INFO","msg":"应用程序启动"}
+{"time":"2025-11-11T01:51:15.513395+08:00","level":"INFO","msg":"模型服务创建成功","provider":"openai"}
+{"time":"2025-11-11T01:51:15.51359+08:00","level":"ERROR","msg":"解析读取超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:51:15.513598+08:00","level":"ERROR","msg":"解析写入超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:51:15.51364+08:00","level":"INFO","msg":"应用程序启动完成"}
+{"time":"2025-11-11T01:51:15.513687+08:00","level":"INFO","msg":"启动HTTP服务器","port":"8080","mode":"debug"}
+{"time":"2025-11-11T01:51:46.812954+08:00","level":"INFO","msg":"收到聊天请求","message":"你好，你是谁？"}
+{"time":"2025-11-11T01:51:46.813006+08:00","level":"INFO","msg":"处理用户消息","message":"你好，你是谁？"}
+{"time":"2025-11-11T01:51:46.813163+08:00","level":"ERROR","msg":"执行对话链失败","error":"[NodeRunError] 创建请求失败: parse \"${OPENAI_BASE_URL:https://api.openai.com/v1}/chat/completions\": first path segment in URL cannot contain colon\n------------------------\nnode path: [node_1]"}
+{"time":"2025-11-11T01:51:46.813172+08:00","level":"ERROR","msg":"处理聊天消息失败","error":"执行对话链失败: [NodeRunError] 创建请求失败: parse \"${OPENAI_BASE_URL:https://api.openai.com/v1}/chat/completions\": first path segment in URL cannot contain colon\n------------------------\nnode path: [node_1]"}
+{"time":"2025-11-11T01:52:20.444922+08:00","level":"INFO","msg":"正在关闭应用程序"}
+{"time":"2025-11-11T01:52:20.445262+08:00","level":"INFO","msg":"正在关闭HTTP服务器"}
+{"time":"2025-11-11T01:52:20.445387+08:00","level":"ERROR","msg":"HTTP服务器启动失败","error":"http: Server closed"}
+{"time":"2025-11-11T01:52:20.445411+08:00","level":"INFO","msg":"应用程序已关闭"}
+{"time":"2025-11-11T01:52:24.043608+08:00","level":"INFO","msg":"应用程序启动"}
+{"time":"2025-11-11T01:52:24.043711+08:00","level":"INFO","msg":"模型服务创建成功","provider":"openai"}
+{"time":"2025-11-11T01:52:24.044061+08:00","level":"ERROR","msg":"解析读取超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:52:24.044074+08:00","level":"ERROR","msg":"解析写入超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:52:24.044157+08:00","level":"INFO","msg":"应用程序启动完成"}
+{"time":"2025-11-11T01:52:24.044197+08:00","level":"INFO","msg":"启动HTTP服务器","port":"8080","mode":"debug"}
+{"time":"2025-11-11T01:52:32.424371+08:00","level":"INFO","msg":"收到聊天请求","message":"你好，你是谁？"}
+{"time":"2025-11-11T01:52:32.42443+08:00","level":"INFO","msg":"处理用户消息","message":"你好，你是谁？"}
+{"time":"2025-11-11T01:52:32.424571+08:00","level":"ERROR","msg":"执行对话链失败","error":"[NodeRunError] 创建请求失败: parse \"${OPENAI_BASE_URL:https://api.openai.com/v1}/chat/completions\": first path segment in URL cannot contain colon\n------------------------\nnode path: [node_1]"}
+{"time":"2025-11-11T01:52:32.424581+08:00","level":"ERROR","msg":"处理聊天消息失败","error":"执行对话链失败: [NodeRunError] 创建请求失败: parse \"${OPENAI_BASE_URL:https://api.openai.com/v1}/chat/completions\": first path segment in URL cannot contain colon\n------------------------\nnode path: [node_1]"}
+{"time":"2025-11-11T01:53:20.010442+08:00","level":"INFO","msg":"正在关闭应用程序"}
+{"time":"2025-11-11T01:53:20.010892+08:00","level":"INFO","msg":"正在关闭HTTP服务器"}
+{"time":"2025-11-11T01:53:20.011054+08:00","level":"ERROR","msg":"HTTP服务器启动失败","error":"http: Server closed"}
+{"time":"2025-11-11T01:53:20.011106+08:00","level":"INFO","msg":"应用程序已关闭"}
+{"time":"2025-11-11T01:53:24.907867+08:00","level":"INFO","msg":"应用程序启动"}
+{"time":"2025-11-11T01:53:24.908014+08:00","level":"INFO","msg":"模型服务创建成功","provider":"openai"}
+{"time":"2025-11-11T01:53:24.90828+08:00","level":"ERROR","msg":"解析读取超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:53:24.908291+08:00","level":"ERROR","msg":"解析写入超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:53:24.908355+08:00","level":"INFO","msg":"应用程序启动完成"}
+{"time":"2025-11-11T01:53:24.908401+08:00","level":"INFO","msg":"启动HTTP服务器","port":"8080","mode":"debug"}
+{"time":"2025-11-11T01:53:27.592469+08:00","level":"INFO","msg":"收到聊天请求","message":"你好，你是谁？"}
+{"time":"2025-11-11T01:53:27.592516+08:00","level":"INFO","msg":"处理用户消息","message":"你好，你是谁？"}
+{"time":"2025-11-11T01:53:57.593509+08:00","level":"ERROR","msg":"执行对话链失败","error":"[NodeRunError] 发送请求失败: Post \"https://api.openai.com/v1/chat/completions\": dial tcp 108.160.170.41:443: i/o timeout\n------------------------\nnode path: [node_1]"}
+{"time":"2025-11-11T01:53:57.59429+08:00","level":"ERROR","msg":"处理聊天消息失败","error":"执行对话链失败: [NodeRunError] 发送请求失败: Post \"https://api.openai.com/v1/chat/completions\": dial tcp 108.160.170.41:443: i/o timeout\n------------------------\nnode path: [node_1]"}
+{"time":"2025-11-11T01:54:38.733601+08:00","level":"INFO","msg":"正在关闭应用程序"}
+{"time":"2025-11-11T01:54:38.733908+08:00","level":"INFO","msg":"正在关闭HTTP服务器"}
+{"time":"2025-11-11T01:54:38.734083+08:00","level":"ERROR","msg":"HTTP服务器启动失败","error":"http: Server closed"}
+{"time":"2025-11-11T01:54:38.734122+08:00","level":"INFO","msg":"应用程序已关闭"}
+{"time":"2025-11-11T01:54:42.395299+08:00","level":"INFO","msg":"应用程序启动"}
+{"time":"2025-11-11T01:54:42.395384+08:00","level":"INFO","msg":"模型服务创建成功","provider":"openai"}
+{"time":"2025-11-11T01:54:42.395659+08:00","level":"ERROR","msg":"解析读取超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:54:42.395674+08:00","level":"ERROR","msg":"解析写入超时时间失败","value":"30s","error":"time: unknown unit \"ss\" in duration \"30ss\""}
+{"time":"2025-11-11T01:54:42.395755+08:00","level":"INFO","msg":"应用程序启动完成"}
+{"time":"2025-11-11T01:54:42.395775+08:00","level":"INFO","msg":"启动HTTP服务器","port":"8080","mode":"debug"}
+{"time":"2025-11-11T01:55:08.232846+08:00","level":"INFO","msg":"正在关闭应用程序"}
+{"time":"2025-11-11T01:55:08.233163+08:00","level":"INFO","msg":"正在关闭HTTP服务器"}
+{"time":"2025-11-11T01:55:08.233367+08:00","level":"ERROR","msg":"HTTP服务器启动失败","error":"http: Server closed"}
+{"time":"2025-11-11T01:55:08.2334+08:00","level":"INFO","msg":"应用程序已关闭"}
+{"time":"2025-11-11T01:55:11.609403+08:00","level":"INFO","msg":"应用程序启动"}
+{"time":"2025-11-11T01:55:11.609525+08:00","level":"INFO","msg":"模型服务创建成功","provider":"openai"}
+{"time":"2025-11-11T01:55:11.609788+08:00","level":"ERROR","msg":"解析读取超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:55:11.609798+08:00","level":"ERROR","msg":"解析写入超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:55:11.609859+08:00","level":"INFO","msg":"应用程序启动完成"}
+{"time":"2025-11-11T01:55:11.609889+08:00","level":"INFO","msg":"启动HTTP服务器","port":"8080","mode":"debug"}
+{"time":"2025-11-11T01:56:05.07876+08:00","level":"INFO","msg":"正在关闭应用程序"}
+{"time":"2025-11-11T01:56:05.078877+08:00","level":"INFO","msg":"正在关闭HTTP服务器"}
+{"time":"2025-11-11T01:56:05.079091+08:00","level":"ERROR","msg":"HTTP服务器启动失败","error":"http: Server closed"}
+{"time":"2025-11-11T01:56:05.079109+08:00","level":"INFO","msg":"应用程序已关闭"}
+{"time":"2025-11-11T01:56:31.226478+08:00","level":"INFO","msg":"应用程序启动"}
+{"time":"2025-11-11T01:56:31.226888+08:00","level":"INFO","msg":"模型服务创建成功","provider":"openai"}
+{"time":"2025-11-11T01:56:31.227085+08:00","level":"ERROR","msg":"解析读取超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:56:31.227091+08:00","level":"ERROR","msg":"解析写入超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:56:31.227132+08:00","level":"INFO","msg":"应用程序启动完成"}
+{"time":"2025-11-11T01:56:31.227163+08:00","level":"INFO","msg":"启动HTTP服务器","port":"8080","mode":"debug"}
+{"time":"2025-11-11T01:56:46.735399+08:00","level":"INFO","msg":"收到聊天请求","message":"你好，你是谁？"}
+{"time":"2025-11-11T01:56:46.735488+08:00","level":"INFO","msg":"处理用户消息","message":"你好，你是谁？"}
+{"time":"2025-11-11T01:56:49.428301+08:00","level":"INFO","msg":"对话链执行成功","response":"你好，我是智能客服助手，专门帮助用户处理订单相关的问题。有什么可以帮到你的吗？"}
+{"time":"2025-11-11T01:56:52.422028+08:00","level":"ERROR","msg":"无效的订单查询请求","error":"Key: 'OrderQueryRequest.Query' Error:Field validation for 'Query' failed on the 'required' tag"}
+{"time":"2025-11-11T01:56:57.477319+08:00","level":"INFO","msg":"收到订单查询请求","query":"查询订单12345的状态"}
+{"time":"2025-11-11T01:56:57.477579+08:00","level":"INFO","msg":"处理订单查询","query":"查询订单12345的状态"}
+{"time":"2025-11-11T01:56:57.477682+08:00","level":"INFO","msg":"订单查询处理完成","result":"请提供您的订单号，以便我为您查询具体的订单信息。\n"}
+{"time":"2025-11-11T01:57:17.036832+08:00","level":"INFO","msg":"正在关闭应用程序"}
+{"time":"2025-11-11T01:57:17.036984+08:00","level":"INFO","msg":"正在关闭HTTP服务器"}
+{"time":"2025-11-11T01:57:17.037105+08:00","level":"ERROR","msg":"HTTP服务器启动失败","error":"http: Server closed"}
+{"time":"2025-11-11T01:57:35.58837+08:00","level":"INFO","msg":"应用程序启动"}
+{"time":"2025-11-11T01:57:35.588527+08:00","level":"INFO","msg":"模型服务创建成功","provider":"openai"}
+{"time":"2025-11-11T01:57:35.588876+08:00","level":"ERROR","msg":"解析读取超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:57:35.588888+08:00","level":"ERROR","msg":"解析写入超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T01:57:35.588963+08:00","level":"INFO","msg":"应用程序启动完成"}
+{"time":"2025-11-11T01:57:35.589+08:00","level":"INFO","msg":"启动HTTP服务器","port":"8080","mode":"debug"}
+{"time":"2025-11-11T01:57:39.052182+08:00","level":"INFO","msg":"收到聊天请求","message":"我昨天下的单"}
+{"time":"2025-11-11T01:57:39.05224+08:00","level":"INFO","msg":"处理用户消息","message":"我昨天下的单"}
+{"time":"2025-11-11T01:57:40.226763+08:00","level":"INFO","msg":"对话链执行成功","response":"很抱歉，我无法查询您的具体订单信息。请问您遇到了什么问题，我可以帮您解决吗？"}
+{"time":"2025-11-11T01:57:54.58646+08:00","level":"INFO","msg":"收到订单查询请求","query":"我昨天下的单"}
+{"time":"2025-11-11T01:57:54.586498+08:00","level":"INFO","msg":"处理订单查询","query":"我昨天下的单"}
+{"time":"2025-11-11T01:57:54.586524+08:00","level":"INFO","msg":"订单查询处理完成","result":"您查询的是昨天(2025-11-10)的订单信息。\n请提供您的订单号，以便我为您查询具体的订单信息。\n"}
+{"time":"2025-11-11T01:57:58.122463+08:00","level":"INFO","msg":"收到订单查询请求","query":"查询昨天订单ORD123456的状态"}
+{"time":"2025-11-11T01:57:58.122661+08:00","level":"INFO","msg":"处理订单查询","query":"查询昨天订单ORD123456的状态"}
+{"time":"2025-11-11T01:57:58.122723+08:00","level":"INFO","msg":"订单查询处理完成","result":"您查询的是昨天(2025-11-10)的订单信息。\n订单号: ORD123456\n订单状态: 已发货\n预计送达: 明天\n"}
+{"time":"2025-11-11T01:58:00.51977+08:00","level":"INFO","msg":"正在关闭应用程序"}
+{"time":"2025-11-11T01:58:00.519809+08:00","level":"INFO","msg":"正在关闭HTTP服务器"}
+{"time":"2025-11-11T01:58:00.519918+08:00","level":"ERROR","msg":"HTTP服务器启动失败","error":"http: Server closed"}
+{"time":"2025-11-11T02:07:50.473372+08:00","level":"INFO","msg":"应用程序启动"}
+{"time":"2025-11-11T02:07:50.47381+08:00","level":"INFO","msg":"模型服务创建成功","provider":"openai"}
+{"time":"2025-11-11T02:07:50.473998+08:00","level":"ERROR","msg":"解析读取超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T02:07:50.474006+08:00","level":"ERROR","msg":"解析写入超时时间失败","value":"30s","error":"time: unknown unit \"ss\" in duration \"30ss\""}
+{"time":"2025-11-11T02:07:50.474058+08:00","level":"INFO","msg":"应用程序启动完成"}
+{"time":"2025-11-11T02:07:50.474067+08:00","level":"INFO","msg":"启动HTTP服务器","port":"8080","mode":"debug"}
+{"time":"2025-11-11T02:07:55.036981+08:00","level":"INFO","msg":"收到聊天请求","message":"你好，我想查询订单","session_id":"test123"}
+{"time":"2025-11-11T02:07:55.037016+08:00","level":"INFO","msg":"处理多轮对话消息","message":"你好，我想查询订单","session_id":"test123"}
+{"time":"2025-11-11T02:07:55.037025+08:00","level":"INFO","msg":"多轮对话处理成功","session_id":"test123","response":"好的，我可以帮您查询订单信息。请提供您的订单号，通常以'ORD'开头。"}
+{"time":"2025-11-11T02:07:58.37673+08:00","level":"INFO","msg":"收到聊天请求","message":"我的订单号是ORD20231110001","session_id":"test123"}
+{"time":"2025-11-11T02:07:58.376789+08:00","level":"INFO","msg":"处理多轮对话消息","session_id":"test123","message":"我的订单号是ORD20231110001"}
+{"time":"2025-11-11T02:07:58.563036+08:00","level":"INFO","msg":"多轮对话处理成功","response":"查询订单失败: 订单不存在: ORD20231110001","session_id":"test123"}
+{"time":"2025-11-11T02:08:01.722145+08:00","level":"INFO","msg":"获取对话历史","session_id":"test123"}
+{"time":"2025-11-11T02:08:01.722193+08:00","level":"INFO","msg":"获取对话历史","session_id":"test123"}
+{"time":"2025-11-11T02:08:05.175604+08:00","level":"INFO","msg":"清除对话历史","session_id":"test123"}
+{"time":"2025-11-11T02:08:05.175635+08:00","level":"INFO","msg":"清除对话历史","session_id":"test123"}
+{"time":"2025-11-11T02:08:12.139434+08:00","level":"INFO","msg":"获取对话历史","session_id":"test123"}
+{"time":"2025-11-11T02:08:12.13948+08:00","level":"INFO","msg":"获取对话历史","session_id":"test123"}
+{"time":"2025-11-11T02:08:12.139497+08:00","level":"ERROR","msg":"获取对话历史失败","error":"获取对话历史失败: conversation state not found"}
+{"time":"2025-11-11T02:08:15.616562+08:00","level":"INFO","msg":"收到聊天请求","message":"我想申请退款","session_id":"test123"}
+{"time":"2025-11-11T02:08:15.616783+08:00","level":"INFO","msg":"处理多轮对话消息","session_id":"test123","message":"我想申请退款"}
+{"time":"2025-11-11T02:08:15.616811+08:00","level":"INFO","msg":"多轮对话处理成功","session_id":"test123","response":"好的，我可以帮您处理退款申请。请提供您的订单号，通常以'ORD'开头。"}
+{"time":"2025-11-11T02:08:18.864506+08:00","level":"INFO","msg":"收到聊天请求","message":"我的订单号是ORD20231110002","session_id":"test123"}
+{"time":"2025-11-11T02:08:18.864557+08:00","level":"INFO","msg":"处理多轮对话消息","session_id":"test123","message":"我的订单号是ORD20231110002"}
+{"time":"2025-11-11T02:08:18.8646+08:00","level":"INFO","msg":"多轮对话处理成功","session_id":"test123","response":"好的，您要为订单 ORD20231110002 申请退款。请告诉我退款原因，例如：商品质量问题、不想要了等。"}
+{"time":"2025-11-11T02:08:21.916213+08:00","level":"INFO","msg":"收到聊天请求","session_id":"test123","message":"商品质量问题"}
+{"time":"2025-11-11T02:08:21.916244+08:00","level":"INFO","msg":"处理多轮对话消息","message":"商品质量问题","session_id":"test123"}
+{"time":"2025-11-11T02:08:22.114427+08:00","level":"INFO","msg":"多轮对话处理成功","session_id":"test123","response":"退款申请失败: 查询订单失败: 订单不存在: ORD20231110002"}
+{"time":"2025-11-11T02:08:25.057991+08:00","level":"INFO","msg":"获取对话历史","session_id":"test123"}
+{"time":"2025-11-11T02:08:25.058034+08:00","level":"INFO","msg":"获取对话历史","session_id":"test123"}
+{"time":"2025-11-11T02:26:53.268275+08:00","level":"INFO","msg":"应用程序启动"}
+{"time":"2025-11-11T02:26:53.2684+08:00","level":"INFO","msg":"模型服务创建成功","provider":"openai"}
+{"time":"2025-11-11T02:26:53.268424+08:00","level":"INFO","msg":"模型初始化成功","provider":"openai","model":"gpt-3.5-turbo"}
+{"time":"2025-11-11T02:26:53.26843+08:00","level":"INFO","msg":"开始加载插件","plugins_dir":"plugins"}
+{"time":"2025-11-11T02:26:53.268477+08:00","level":"INFO","msg":"插件加载完成","count":0}
+{"time":"2025-11-11T02:26:53.268669+08:00","level":"ERROR","msg":"解析读取超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T02:26:53.268674+08:00","level":"ERROR","msg":"解析写入超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T02:26:53.26875+08:00","level":"INFO","msg":"应用程序启动完成"}
+{"time":"2025-11-11T02:26:53.268811+08:00","level":"INFO","msg":"启动HTTP服务器","port":"8080","mode":"debug"}
+{"time":"2025-11-11T02:26:53.269171+08:00","level":"ERROR","msg":"HTTP服务器启动失败","error":"listen tcp :8080: bind: address already in use"}
+{"time":"2025-11-11T02:27:24.057692+08:00","level":"INFO","msg":"应用程序启动"}
+{"time":"2025-11-11T02:27:24.057839+08:00","level":"INFO","msg":"模型服务创建成功","provider":"openai"}
+{"time":"2025-11-11T02:27:24.05787+08:00","level":"INFO","msg":"模型初始化成功","provider":"openai","model":"gpt-3.5-turbo"}
+{"time":"2025-11-11T02:27:24.057877+08:00","level":"INFO","msg":"开始加载插件","plugins_dir":"plugins"}
+{"time":"2025-11-11T02:27:24.057922+08:00","level":"INFO","msg":"插件加载完成","count":0}
+{"time":"2025-11-11T02:27:24.05817+08:00","level":"ERROR","msg":"解析读取超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T02:27:24.058177+08:00","level":"ERROR","msg":"解析写入超时时间失败","error":"time: unknown unit \"ss\" in duration \"30ss\"","value":"30s"}
+{"time":"2025-11-11T02:27:24.058255+08:00","level":"INFO","msg":"应用程序启动完成"}
+{"time":"2025-11-11T02:27:24.058313+08:00","level":"INFO","msg":"启动HTTP服务器","port":"8080","mode":"debug"}
+{"time":"2025-11-11T02:27:40.531923+08:00","level":"INFO","msg":"获取当前模型"}
+{"time":"2025-11-11T02:27:44.636585+08:00","level":"INFO","msg":"收到聊天请求","message":"你好，请介绍一下你自己","session_id":""}
+{"time":"2025-11-11T02:27:44.636612+08:00","level":"INFO","msg":"处理用户消息","message":"你好，请介绍一下你自己"}
+{"time":"2025-11-11T02:27:46.348994+08:00","level":"INFO","msg":"对话链执行成功","response":"你好，我是智能客服助手，专门帮助用户处理订单、发票和退款相关的问题。无论您有任何订单方面的疑问，都可以随时向我咨询，我会尽力帮助您解决问题。有什么可以帮到您的吗？"}
+{"time":"2025-11-11T02:27:48.50829+08:00","level":"INFO","msg":"获取插件列表"}
